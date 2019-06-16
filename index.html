@@ -15,13 +15,47 @@
     function onDeviceReady() {
         navigator.notification.alert("PhoneGap is ready!");
     }
+    function processDir(fileSystemType) {
+      alert("processDir: " + fileSystemType);
+      //Get a handle to the local file system (allocate 1 Mb for
+      // storage)
+      window.requestFileSystem(fileSystemType, 1024 * 1024, onGetFileSystemSuccess, onFileError);
+    }
+function onGetFileSystemSuccess(fs) {
+  alert("onGetFileSystemSuccess: " + fs.name);
+  //Save the file system object so we can access it later
+  //Yes, I know it's cheating, but it's an easier way to do this
+  theFileSystem = fs;
+  //Create a directory reader we'll use to list the files in the
+  // directory
+  var dr = fs.root.createReader();
+  // Get a list of all the entries in the directory
+  dr.readEntries(onDirReaderSuccess, onFileError);
+}
+function onDirReaderSuccess(dirEntries) {
+  alert("onDirReaderSuccess (" + dirEntries.length + ")");
+  theEntries = dirEntries;
+  len = theEntries.length;
+  if(len > 0) {
+    fl = '<ul data-role="listview" id="dirEntryList">';
+    for( i = 0; i < len; i++) {
+      if(theEntries[i].isDirectory == true) {
+        fl += '<li><a href="#">Directory: ' + theEntries[i].name + '</a></li>';
+      } else {
+        fl += '<li><a href="#">File: ' + theEntries[i].name + '</a></li>';
+      }
+    }
+    fl += "</ul>";
+    $('#info').html(fl);
+  }
+}
     
 </script>
 </head>
 <body onload="onBodyLoad()">
     <h1>read file</h1>
-    <p id="info"></p>
-    <input type="button" value="" onclick="">
+    <div id="info"></div>
+    <input type="button" value="" onclick="processDir(LocalFileSystem.PERSISTENT);">
 </body>
 </body>
 </html>
