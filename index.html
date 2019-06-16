@@ -49,13 +49,60 @@ function onDirReaderSuccess(dirEntries) {
     $('#info').html(fl);
   }
 }
+   
+function onFileError(e) {
+  var msgText;
+  switch(e.code) {
+    case FileError.NOT_FOUND_ERR:
+      msgText = "File not found error.";
+      break;
+    case FileError.SECURITY_ERR:
+      msgText = "Security error.";
+      break;
+    case FileError.ABORT_ERR:
+      msgText = "Abort error.";
+      break;
+    case FileError.NOT_READABLE_ERR:
+      msgText = "Not readable error.";
+      break;
+    case FileError.ENCODING_ERR:
+      msgText = "Encoding error.";
+      break;
+    case FileError.NO_MODIFICATION_ALLOWED_ERR:
+      msgText = "No modification allowed.";
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msgText = "Invalid state.";
+      break;
+    case FileError.SYNTAX_ERR:
+      msgText = "Syntax error.";
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msgText = "Invalid modification.";
+      break;
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msgText = "Quote exceeded.";
+      break;
+    case FileError.TYPE_MISMATCH_ERR:
+      msgText = "Type mismatch.";
+      break;
+    case FileError.PATH_EXISTS_ERR:
+      msgText = "Path exists error.";
+      break;
+    default:
+      msgText = "Unknown error.";
+  }
+  //Now tell the user what happened
+  navigator.notification.alert(msgText, null, "File Error");
+}
+
     
 </script>
 </head>
 <body onload="onBodyLoad()">
     <h1>read file</h1>
     <div id="info"></div>
-    <input type="button" value="" onclick="processDir(LocalFileSystem.PERSISTENT);">
+    <input type="button" value="Start" onclick="processDir(LocalFileSystem.PERSISTENT);">
 </body>
 </body>
 </html>
