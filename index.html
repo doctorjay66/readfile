@@ -40,15 +40,35 @@ function onDirReaderSuccess(dirEntries) {
     fl = '<ul data-role="listview" id="dirEntryList">';
     for( i = 0; i < len; i++) {
       if(theEntries[i].isDirectory == true) {
-        fl += '<li><a href="#">Directory: ' + theEntries[i].name + '</a></li>';
+        fl += '<li><a href="" onclick="processEntry(' + i + ');">Directory: ' + theEntries[i].name + '</a></li>';
       } else {
-        fl += '<li><a href="#">File: ' + theEntries[i].name + '</a></li>';
+        fl += '<li><a href="" onclick="processEntry(' + i + ');">File: ' + theEntries[i].name + '</a></li>';
       }
     }
     fl += "</ul>";
     $('#info').html(fl);
   }
 }
+    
+function processEntry(entryIndex) {
+  //clear out the writeInfo div in case we go back to the list
+  // page
+  $('#info').empty();
+  //Get access to the inidividual file entry
+  theEntry = theEntries[entryIndex];
+  //FileInfo variable
+  var fi = "";
+  fi += '<p>' + '<b>Name</b>: ' + theEntry.name + '</p>';
+  fi += '<p>' + '<b>Full Path</b>: ' + theEntry.fullPath + '</p>';
+  fi += '<p>' + '<b>URI</b>: ' + theEntry.toURI() + '</p>';
+  if(theEntry.isFile == true) {
+    fi += '<p>' + 'The entry is a file' + '</p>';
+  } else {
+    fi += '<p>' + 'The entry is a directory' + '</p>';
+  }
+  //Update the page content with information about the file
+  $('#fileInfo').html(fi);
+}    
    
 function onFileError(e) {
   var msgText;
@@ -102,6 +122,7 @@ function onFileError(e) {
 <body onload="onBodyLoad()">
     <h1>read file</h1>
     <div id="info"></div>
+    <div id="fileInfo"></div>
     <input type="button" value="Temporary" onclick="processDir(LocalFileSystem.TEMPORARY);">
     <input type="button" value="Persist" onclick="processDir(LocalFileSystem.PERSISTENT);">
 </body>
