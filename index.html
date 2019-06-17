@@ -33,8 +33,9 @@ function onGetFileSystemSuccess(fs) {
   dr.readEntries(onDirReaderSuccess, onFileError);
 }
 function onDirReaderSuccess(dirEntries) {
-  alert("onDirReaderSuccess (" + dirEntries.length + ")");
+  alert("onDirReaderSuccess (" + dirEntries.length + ")");  
   theEntries = dirEntries;
+  alert(theEntries);
   len = theEntries.length;
   if(len > 0) {
     fl = '<ul data-role="listview" id="dirEntryList">';
