@@ -22,7 +22,7 @@
       window.requestFileSystem(fileSystemType, 1024 * 1024, onGetFileSystemSuccess, onFileError);
     }
 function onGetFileSystemSuccess(fs) {
-  alert("onGetFileSystemSuccess: " + fs.name);
+  alert("onGetFileSystemSuccess: " + fs.name + " storage (" + fs.root.fullPath + ")");
   //Save the file system object so we can access it later
   //Yes, I know it's cheating, but it's an easier way to do this
   theFileSystem = fs;
