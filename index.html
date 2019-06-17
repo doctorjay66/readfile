@@ -9,6 +9,8 @@
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
     var theEntries;
+    var theEntry;
+    var theFileSystem;
     function onBodyLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
@@ -41,7 +43,7 @@ function onDirReaderSuccess(dirEntries) {
     fl = '<ul data-role="listview" id="dirEntryList">';
     for( i = 0; i < len; i++) {
       if(theEntries[i].isDirectory == true) {
-        fl += '<li><a href="" onclick="processEntry1(theEntries[i]);">Directory: ' + theEntries[i].fullPath + '</a></li>';
+        fl += '<li><a href="" onclick="processEntry(theEntries[i]);">Directory: ' + theEntries[i].fullPath + '</a></li>';
       } else {
         fl += '<li><a href="" onclick="processEntry(' + i + ');">File: ' + theEntries[i].name + '</a></li>';
       }
@@ -60,18 +62,19 @@ function processEntry(entryIndex) {
   // page
   $('#info').empty();
   //Get access to the inidividual file entry
-  theEntry = theEntries[entryIndex];
+  #theEntry = theEntries[entryIndex];
   //FileInfo variable
   var fi = "";
-  fi += '<p>' + '<b>Name</b>: ' + theEntry.name + '</p>';
-  fi += '<p>' + '<b>Full Path</b>: ' + theEntry.fullPath + '</p>';
-  fi += '<p>' + '<b>URI</b>: ' + theEntry.toURI() + '</p>';
+  fi += '<p>' + '<b>Name</b>: ' + "theEntry.name" + '</p>';
+  fi += '<p>' + '<b>Full Path</b>: ' + "theEntry.fullPath" + '</p>';
+  fi += '<p>' + '<b>URI</b>: ' + "theEntry.toURI()" + '</p>';
   if(theEntry.isFile == true) {
     fi += '<p>' + 'The entry is a file' + '</p>';
   } else {
     fi += '<p>' + 'The entry is a directory' + '</p>';
   }
-  alert("entry i" + entryIndex, theEntries);
+  alert("entry i" + entryIndex);
+    #alert(theEntries);
   //Update the page content with information about the file
   $('#fileInfo').html(fi);
 }    
