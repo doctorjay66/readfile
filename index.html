@@ -8,6 +8,7 @@
 <script type="text/javascript" charset="utf-8" src="jquery-1.11.2.js"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
+    var theEntries;
     function onBodyLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
@@ -34,8 +35,7 @@ function onGetFileSystemSuccess(fs) {
 }
 function onDirReaderSuccess(dirEntries) {
   alert("onDirReaderSuccess (" + dirEntries.length + ")");  
-  theEntries = dirEntries;
-  alert(theEntries);
+  theEntries = dirEntries;  
   len = theEntries.length;
   if(len > 0) {
     fl = '<ul data-role="listview" id="dirEntryList">';
