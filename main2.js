@@ -7,7 +7,7 @@ var startP = '<p>';
 var endP = '</p>';
 
 function getMyTxtfile() {
-      window.resolveLocalFileSystemURL("/Download/testbla.txt", gotFile, onFileError);
+      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
 }
 
 function processDir(fileSystemType) {
