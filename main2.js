@@ -50,7 +50,6 @@ function onDirReaderSuccess(dirEntries) {
   $('#writeInfo').empty();
   //Display the directory entries page
   $.mobile.changePage("#dirList", "slide", false, true);
-  }
 }
 
 function processEntry(entryIndex) {
