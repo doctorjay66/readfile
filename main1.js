@@ -1,6 +1,6 @@
-    var theEntries;
-    var theEntry;
-    var theFileSystem;
+    //var theEntries;
+    //var theEntry;
+    //var theFileSystem;
     function onBodyLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
