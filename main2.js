@@ -39,7 +39,17 @@ function onDirReaderSuccess(dirEntries) {
       }
     }
     fl += "</ul>";
-    $('#info').html(fl);
+    $('#dirEntries').html(fl);
+    //$('#dirEntryList').listview('refresh');
+    $('#dirEntryList').trigger('create');
+  } else {
+    fl = "<p>No entries found</p>";
+    $('#dirEntries').html(fl);
+  }
+  //Delete any previous fileWriter details we may have on the page
+  $('#writeInfo').empty();
+  //Display the directory entries page
+  $.mobile.changePage("#dirList", "slide", false, true);
   }
 }
 
