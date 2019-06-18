@@ -50,6 +50,17 @@ function processEntry(entryIndex) {
   //Get access to the inidividual file entry
   theEntry = theEntries[entryIndex];
   alert(theEntry);
+  var fi = "";
+  fi += '<p>' + '<b>Name</b>: ' + "theEntry.name" + '</p>';
+  fi += '<p>' + '<b>Full Path</b>: ' + "theEntry.fullPath" + '</p>';
+  fi += '<p>' + '<b>URI</b>: ' + "theEntry.toURI()" + '</p>';
+  if(theEntry.isFile == true) {
+    fi += '<p>' + 'The entry is a file' + '</p>';
+  } else {
+    fi += '<p>' + 'The entry is a directory' + '</p>';
+  }
+  //Update the page content with information about the file
+  $('#fileInfo').html(fi);
 }
 
 function onFileError(e) {
