@@ -8,6 +8,16 @@
 <script type="text/javascript" charset="utf-8" src="jquery-1.11.2.js"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8" src="main2.js"></script>
+<script type="text/javascript">
+function onBodyLoad() {
+  document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+  navigator.notification.alert("PhoneGap is ready!");
+  alert("PhoneGap is ready!");
+}
+</script>
 </head>
 <body onload="onBodyLoad()">
     <h1>read file</h1>
