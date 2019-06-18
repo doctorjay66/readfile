@@ -51,14 +51,15 @@ function processEntry(entryIndex) {
   theEntry = theEntries[entryIndex];
   alert(theEntry);
   var fi = "";
-  fi += '<p>' + '<b>Name</b>: ' + "theEntry.name" + '</p>';
-  fi += '<p>' + '<b>Full Path</b>: ' + "theEntry.fullPath" + '</p>';
-  fi += '<p>' + '<b>URI</b>: ' + "theEntry.toURI()" + '</p>';
+  fi += startP + '<b>Name</b>: ' + theEntry.name + endP;
+  fi += startP + '<b>Full Path</b>: ' + theEntry.fullPath + endP;
+  fi += startP + '<b>URI</b>: ' + theEntry.toURI() + endP;
   if(theEntry.isFile == true) {
-    fi += '<p>' + 'The entry is a file' + '</p>';
+    fi += startP + 'The entry is a file' + endP;
   } else {
-    fi += '<p>' + 'The entry is a directory' + '</p>';
+    fi += startP + 'The entry is a directory' + endP;
   }
+  alert(fi);
   //Update the page content with information about the file
   $('#fileInfo').html(fi);
 }
