@@ -47,5 +47,35 @@ function onDeviceReady() {
         <div id="writeInfo"></div>
       </div>
     </section>
+    <section id="fileDetails" data-role="page" data-add-back-btn="true">
+      <header data-role="header">
+        <h1>File API Demo</h1>
+      </header>
+      <div data-role="content">
+        <p>
+          <em>Directory Entry Information</em>
+        </p>
+        <hr />
+        <div id="fileInfo"></div>
+        <hr />
+        <p>
+          <em>File Metadata:</em>
+        </p>
+        <div id="fileMetadata"></div>
+        <input type="button" value="View File" onclick="viewFile();">
+        <input type="button" value="Remove File" onclick="removeFile();">
+      </div>
+    </section>
+    <section id="viewFile" data-role="page" data-add-back-btn="true">
+      <header data-role="header">
+        <h1>File API Demo</h1>
+      </header>
+      <div data-role="content">
+        <div id="viewFileName"></div>
+        <div id="fileContents"></div>
+        <hr />
+        <div id="readInfo"></div>
+      </div>
+    </section>
 </body>
 </html>
