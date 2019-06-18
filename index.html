@@ -6,6 +6,7 @@
 <meta name="viewport" id="viewport" content="width=device-width, height=device-height,
     initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 <script type="text/javascript" charset="utf-8" src="jquery-1.11.2.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.mobile-1.0.js"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8" src="main2.js"></script>
 <script type="text/javascript">
@@ -20,11 +21,31 @@ function onDeviceReady() {
 </script>
 </head>
 <body onload="onBodyLoad()">
-    <h1>read file</h1>
-    <div id="info"></div>
-    <div id="fileInfo"></div>
-    <input type="button" value="Temporary" onclick="processDir(LocalFileSystem.TEMPORARY);">
-    <input type="button" value="Persist" onclick="processDir(LocalFileSystem.PERSISTENT);">
-</body>
+    <section id="main" data-role="page" >
+      <header data-role="header">
+        <h1>File API Demo</h1>
+      </header>
+      <div data-role="content">
+        <p>
+          Select file system:
+          <input type="button" value="Temporary" onclick="processDir(LocalFileSystem.TEMPORARY);">
+          <input type="button" value="Persistent" onclick="processDir(LocalFileSystem.PERSISTENT);">
+        </p>
+      </div>
+    </section>
+    <section id="dirList" data-role="page" data-add-back-btn="true">
+      <header data-role="header">
+        <h1>File API Demo</h1>
+        <a onclick="writeFile();" data-icon="plus" class="ui-btn-right">Write</a>
+      </header>
+      <div data-role="content">
+        <p>
+          File system contents:
+        </p>
+        <div id="dirEntries"></div>
+        <hr />
+        <div id="writeInfo"></div>
+      </div>
+    </section>
 </body>
 </html>
