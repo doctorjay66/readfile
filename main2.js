@@ -6,11 +6,19 @@ var hr = '<hr />';
 var startP = '<p>';
 var endP = '</p>';
 
+function getMyTxtfile() {
+      window.resolveLocalFileSystemURL("/Download/testbla.txt", gotFile, onFileError);
+}
+
 function processDir(fileSystemType) {
       alert("processDir: " + fileSystemType);
       //Get a handle to the local file system (allocate 1 Mb for
       // storage)
       window.requestFileSystem(fileSystemType, 1024 * 1024, onGetFileSystemSuccess, onFileError);
+}
+
+function gotFile(fileEntry) {
+      alert(fileEntry);
 }
 
 function onGetFileSystemSuccess(fs) {
