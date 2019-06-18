@@ -79,7 +79,11 @@ function viewFile() {
   $('#viewFileName').html('<h1>' + theEntry.name + '</h1>');
   //Display the directory entries page
   $.mobile.changePage("#viewFile", "slide", false, true);
-  theEntry.file(onFileReaderSuccess, onFileError);
+  if(theEntry.isFile == true) {
+    theEntryreadEntries(onDirReaderSuccess, onFileError);
+  } else {
+    theEntry.file(onFileReaderSuccess, onFileError);
+  }
 }
 
 function onFileReaderSuccess(file) {
