@@ -33,7 +33,7 @@ function onDirReaderSuccess(dirEntries) {
     fl = '<ul data-role="listview" id="dirEntryList">';
     for( i = 0; i < len; i++) {
       if(theEntries[i].isDirectory == true) {
-        fl += '<li><a href="" onclick="processEntry(' + i + ');">Directory: ' + theEntries[i].fullPath + '</a></li>';
+        fl += '<li><a href="" onclick="processEntry(' + i + ');">Directory: ' + theEntries[i].name + '</a></li>';
       } else {
         fl += '<li><a href="" onclick="processEntry(' + i + ');">File: ' + theEntries[i].name + '</a></li>';
       }
