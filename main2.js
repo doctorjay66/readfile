@@ -27,6 +27,29 @@ function onGetFileSystemSuccess(fs) {
 
 function onDirReaderSuccess(dirEntries) {
   alert("onDirReaderSuccess (" + dirEntries.length + ")");
+  theEntries = dirEntries;  
+  len = theEntries.length;
+  if(len > 0) {
+    fl = '<ul data-role="listview" id="dirEntryList">';
+    for( i = 0; i < len; i++) {
+      if(theEntries[i].isDirectory == true) {
+        fl += '<li><a href="" onclick="processEntry(' + i + ');">Directory: ' + theEntries[i].fullPath + '</a></li>';
+      } else {
+        fl += '<li><a href="" onclick="processEntry(' + i + ');">File: ' + theEntries[i].name + '</a></li>';
+      }
+    }
+    fl += "</ul>";
+    $('#info').html(fl);
+  }
+}
+
+function processEntry(entryIndex) {
+  //clear out the writeInfo div in case we go back to the list
+  // page
+  $('#info').empty();
+  //Get access to the inidividual file entry
+  theEntry = theEntries[entryIndex];
+  alert(theEntry);
 }
 
 function onFileError(e) {
