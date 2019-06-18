@@ -71,6 +71,8 @@ function processEntry(entryIndex) {
   alert(fi);
   //Update the page content with information about the file
   $('#fileInfo').html(fi);
+    //Display the directory entries page
+  $.mobile.changePage("#fileDetails", "slide", false, true);
 }
 
 function onFileError(e) {
