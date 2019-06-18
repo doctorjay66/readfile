@@ -80,7 +80,8 @@ function viewFile() {
   //Display the directory entries page
   $.mobile.changePage("#viewFile", "slide", false, true);
   if(theEntry.isFile == true) {
-    theEntryreadEntries(onDirReaderSuccess, onFileError);
+    alert("is a dir");
+    theEntry.readEntries(onDirReaderSuccess, onFileError);
   } else {
     theEntry.file(onFileReaderSuccess, onFileError);
   }
