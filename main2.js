@@ -19,6 +19,26 @@ function processDir(fileSystemType) {
 
 function gotFile(fileEntry) {
       alert(fileEntry);
+      fileEntry.file(onFileReaderSuccess, onFileError);
+}
+
+function onFileReaderSuccess(file) {
+  var reader = new FileReader();
+
+  reader.onloadend = function(e) {
+    $('#readInfo').append("Load end" + br);
+    $('#fileContents').text(e.target.result);
+  };
+
+  reader.onloadstart = function(e) {
+    $('#readInfo').append("Load start" + br);
+  };
+
+  reader.onloaderror = function(e) {
+    $('#readInfo').append("Load error: " + e.target.error.code + br);
+  };
+
+  reader.readAsText(file);
 }
 
 function onGetFileSystemSuccess(fs) {
