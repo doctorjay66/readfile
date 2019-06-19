@@ -25,6 +25,7 @@ function gotFile(fileEntry) {
 }
 
 function transFile() {
+      alert('trans');
   var ft = new FileTransfer();
   var fileURI = "file:///storage/emulated/0/Download/testbla.txt";
   var serverURL = encodeURI("http://www.ausl.bologna.it/applications/test/getTransFile");
@@ -32,6 +33,7 @@ function transFile() {
 }
 
 function onUploadSuccess(ur) {
+      alert('up succ');
   $('#readInfo').append("Upload Response Code: " + ur.responseCode);
 }
 
