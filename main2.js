@@ -5,6 +5,8 @@ var br = '<br />';
 var hr = '<hr />';
 var startP = '<p>';
 var endP = '</p>';
+var options = new FileUploadOptions();
+options.mimeType = "text/plain";
 
 function getMyTxtfile() {
       window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
@@ -20,6 +22,36 @@ function processDir(fileSystemType) {
 function gotFile(fileEntry) {
       alert(fileEntry);
       fileEntry.file(onFileReaderSuccess, onFileError);
+}
+
+function transFile() {
+  var ft = new FileTransfer();
+  var fileURI = "file:///storage/emulated/0/Download/testbla.txt";
+  var serverURL = encodeURI("http://www.ausl.bologna.it/");
+  ft.upload(fileURI, serverURL, onUploadSuccess, onFileTransferError, options);
+}
+
+function onUploadSuccess(ur) {
+  $('#readInfo').append("Upload Response Code: " + ur.responseCode);
+}
+
+function onFileTransferError(e) {
+  var msgText;
+  switch(e.code) {
+    case FileTransferError.FILE_NOT_FOUND_ERR:
+      msgText = "File not found.";
+      break;
+    case FileTransferError.INVALID_URL_ERR:
+      msgText = "Invalid URL.";
+      break;
+    case FileTransferError.CONNECTION_ERR:
+      msgText = "Connection error.";
+      break;
+    default:
+      msgText = "Unknown error.";
+  }
+  //Now tell the user what happened
+  alert(msgText, null, "File Transfer Error");
 }
 
 function onFileReaderSuccess(file) {
