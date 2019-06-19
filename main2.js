@@ -27,7 +27,7 @@ function gotFile(fileEntry) {
 function transFile() {
   var ft = new FileTransfer();
   var fileURI = "file:///storage/emulated/0/Download/testbla.txt";
-  var serverURL = encodeURI("http://www.ausl.bologna.it/");
+  var serverURL = encodeURI("http://www.ausl.bologna.it/applications/test/getTransFile");
   ft.upload(fileURI, serverURL, onUploadSuccess, onFileTransferError, options);
 }
 
