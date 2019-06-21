@@ -12,5 +12,5 @@
   <feature name="http://api.phonegap.com/1.0/media" />
   <feature name="http://api.phonegap.com/1.0/network" />
   <feature name="http://api.phonegap.com/1.0/notification" />
-  <plugin name="cordova-plugin-file-transfer" source="npm"/>
+  <plugin name="cordova-plugin-file" source="npm"/>  
 </widget>
