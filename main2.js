@@ -24,12 +24,24 @@ function gotFile(fileEntry) {
       fileEntry.file(onFileReaderSuccess, onFileError);
 }
 
+function gotFileToSend(fileEntry) {
+      var reader = new FileReader();
+      fileEntry.file(function (file) {
+        reader.onloadend = function() {
+            var blob = new Blob([new Uint8Array(this.result)], { type: "plain/txt" });
+            var oReq = new XMLHttpRequest();
+            oReq.open("POST", "http://mysweeturl.com/upload_handler", true);
+            oReq.onload = function (oEvent) {
+                  alert("all done!");
+            }
+            oReq.send(blob);
+        };
+        reader.readAsArrayBuffer(file);
+      }, onFileError);
+}
+
 function transFile() {
-      alert('trans');
-  var ft = new FileTransfer();
-  var fileURI = "file:///storage/emulated/0/Download/testbla.txt";
-  var serverURL = encodeURI("http://www.ausl.bologna.it/applications/test/getTransFile");
-  ft.upload(fileURI, serverURL, onUploadSuccess, onFileTransferError, options);
+      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFileToSend, onFileError);
 }
 
 function onUploadSuccess(ur) {
