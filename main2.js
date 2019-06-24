@@ -38,8 +38,7 @@ function gotFileToSend(fileEntry) {
                   alert("all done!");
             }
             oReq.send(blob);
-        };
-        reader.readAsArrayBuffer(file);
+        //reader.readAsArrayBuffer(file);
       }, onFileError);
 }
 
