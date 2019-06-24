@@ -30,7 +30,7 @@ function gotFileToSend(fileEntry) {
         reader.onloadend = function() {
             var blob = new Blob([new Uint8Array(this.result)], { type: "plain/txt" });
             var oReq = new XMLHttpRequest();
-            oReq.open("POST", "http://mysweeturl.com/upload_handler", true);
+            oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
             oReq.onload = function (oEvent) {
                   alert("all done!");
             }
