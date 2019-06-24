@@ -26,7 +26,9 @@ function gotFile(fileEntry) {
 
 function gotFileToSend(fileEntry) {
       var reader = new FileReader();
+      alert("in send");
       fileEntry.file(function (file) {
+        alert("in entry");
         reader.onloadend = function() {
             var blob = new Blob([new Uint8Array(this.result)], { type: "plain/txt" });
             var oReq = new XMLHttpRequest();
