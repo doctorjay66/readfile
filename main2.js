@@ -26,12 +26,13 @@ function gotFile(fileEntry) {
 
 function gotFileToSend(fileEntry) {      
       alert("in send");
-      fileEntry.file(function (file) {
+      /*fileEntry.file(function (file) {
         alert("in entry");
-      }, onFileError);
+      }, onFileError);*/
 }
 
 function transFile() {
+      alert("in trans file");
       window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFileToSend, onFileError);
 }
 
