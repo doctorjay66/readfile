@@ -33,7 +33,7 @@ function gotFileToSend(fileEntry) {
 
 function transFile() {
       alert("in trans file");
-      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFileToSend, onFileError);
+      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
 }
 
 function onUploadSuccess(ur) {
