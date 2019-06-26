@@ -8,9 +8,9 @@ var endP = '</p>';
 var options = new FileUploadOptions();
 options.mimeType = "text/plain";
 
-/*function getMyTxtfile() {
+function getMyTxtfile() {
       window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
-}*/
+}
 
 function processDir(fileSystemType) {
       alert("processDir: " + fileSystemType);
@@ -37,7 +37,7 @@ function transFile() {
       var data_to_tras = "file=bla bla!";
       var oReq = new XMLHttpRequest();
       oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
-      oReq.setRequestHeader('Content-type', 'plain/txt')
+      oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       oReq.onload = function (oEvent) {
          alert("all done!");
       }
