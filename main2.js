@@ -8,9 +8,9 @@ var endP = '</p>';
 var options = new FileUploadOptions();
 options.mimeType = "text/plain";
 
-function getMyTxtfile() {
+/*function getMyTxtfile() {
       window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
-}
+}*/
 
 function processDir(fileSystemType) {
       alert("processDir: " + fileSystemType);
