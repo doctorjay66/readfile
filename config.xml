@@ -6,7 +6,7 @@
   <content src="index.html"/>
   <feature name="http://api.phonegap.com/1.0/file" />
   <feature name="http://api.phonegap.com/1.0/notification" />
-  <plugin name="cordova-plugin-file" source="npm"/>  
+  <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>  
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
