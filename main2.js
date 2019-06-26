@@ -37,6 +37,7 @@ function transFile() {
       var data_to_tras = "file=bla bla!";
       var oReq = new XMLHttpRequest();
       oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
+      oReq.setRequestHeader('Content-type', 'plain/txt')
       oReq.onload = function (oEvent) {
          alert("all done!");
       }
