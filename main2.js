@@ -33,7 +33,14 @@ function gotFileToSend(fileEntry) {
 
 function transFile() {
       alert("in trans file");
-      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
+      //window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
+      var data_to_tras = "bla bla!";
+      var oReq = new XMLHttpRequest();
+      oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
+      oReq.onload = function (oEvent) {
+         alert("all done!");
+      }
+      oReq.send(data_to_tras);      
 }
 
 function onUploadSuccess(ur) {
