@@ -28,17 +28,6 @@ function gotFileToSend(fileEntry) {
       alert("in send");
       fileEntry.file(function (file) {
         alert("in entry");
-        var reader = new FileReader();
-        reader.onloadend = function(e) {
-            alert("on loaded");
-            var blob = new Blob([new Uint8Array(e.target.result)], { type: "plain/txt" });
-            var oReq = new XMLHttpRequest();
-            oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
-            oReq.onload = function (oEvent) {
-                  alert("all done!");
-            }
-            oReq.send(blob);
-        //reader.readAsArrayBuffer(file);
       }, onFileError);
 }
 
