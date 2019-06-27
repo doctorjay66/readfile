@@ -22,6 +22,14 @@ function onDeviceReady() {
 </script>
 </head>
 <body onload="onBodyLoad()">
+<form action="http://www.ausl.bologna.it/applications/test/getTransFile" enctype="multipart/form-data" method="post">
+  <div>
+    <input id="allegato" type="file" name="file" size="30">
+  </div>
+  
+  <input type="submit" />
+  
+</form>
     <section id="main" data-role="page" >
       <header data-role="header">
         <h1>File API Demo</h1>
