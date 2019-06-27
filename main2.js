@@ -30,9 +30,21 @@ function gotFile(fileEntry) {
 
 function gotFileToSend(fileEntry) {      
       alert(fileEntry);
-      /*fileEntry.file(function (file) {
-        alert("in entry");
-      }, onFileError);*/
+      fileEntry.file(function (file) {
+            alert("in entry");
+            var reader = new FileReader();
+            reader.onloadend = function(e) {
+                  var blob = new Blob([new Uint8Array(e.target.result)], { type: "image/jpg" });
+                  var oReq = new XMLHttpRequest();
+                  oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
+                  oReq.setRequestHeader('enctype', 'multipart/form-data');
+                  oReq.onload = function (oEvent) {
+                        alert("all done!");
+                  }
+                  oReq.send(blob);
+            };
+            reader.readAsArrayBuffer(file);
+      }, onFileError);
 }
 
 function transFile() {
