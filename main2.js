@@ -12,6 +12,10 @@ function getMyTxtfile() {
       window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
 }
 
+function getImg() {
+      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/fuochidartificio", gotFileToSend, onFileError);
+}
+
 function processDir(fileSystemType) {
       alert("processDir: " + fileSystemType);
       //Get a handle to the local file system (allocate 1 Mb for
@@ -25,15 +29,14 @@ function gotFile(fileEntry) {
 }
 
 function gotFileToSend(fileEntry) {      
-      alert("in send");
+      alert(fileEntry);
       /*fileEntry.file(function (file) {
         alert("in entry");
       }, onFileError);*/
 }
 
 function transFile() {
-      alert("in trans file");
-      //window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
+      alert("in trans file");      
       var data_to_tras = "file=bla bla! Ciccio bla!";
       var oReq = new XMLHttpRequest();
       oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
