@@ -34,10 +34,11 @@ function gotFileToSend(fileEntry) {
             alert("in entry");
             var reader = new FileReader();
             reader.onloadend = function(e) {
-                  var blob = new Blob([new Uint8Array(e.target.result)], { type: "image/jpg" });
+                  var blob = "file=" + new Blob([new Uint8Array(e.target.result)], { type: "image/jpg" }).text();
                   var oReq = new XMLHttpRequest();
                   oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
                   oReq.setRequestHeader('enctype', 'multipart/form-data');
+                  oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                   oReq.onload = function (oEvent) {
                         alert("all done!");
                   }
