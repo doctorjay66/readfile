@@ -34,7 +34,7 @@ function gotFileToSend(fileEntry) {
 function transFile() {
       alert("in trans file");
       //window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/testbla.txt", gotFile, onFileError);
-      var data_to_tras = "file=bla bla!";
+      var data_to_tras = "file=bla bla! Ciccio bla!";
       var oReq = new XMLHttpRequest();
       oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
       oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
