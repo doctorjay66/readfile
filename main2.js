@@ -13,7 +13,7 @@ function getMyTxtfile() {
 }
 
 function getImg() {
-      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/fuochidartificio", gotFileToSend, onFileError);
+      window.resolveLocalFileSystemURL("file:///storage/emulated/0/Download/fuochidartificio.jpg", gotFileToSend, onFileError);
 }
 
 function processDir(fileSystemType) {
