@@ -36,7 +36,8 @@ function gotFileToSend(fileEntry) {
             reader.onloadend = function(e) {
                   var blob = "file=" + new Blob([new Uint8Array(e.target.result)], { type: "image/jpg" }).text();
                   var oReq = new XMLHttpRequest();
-                  oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
+                  var my_url = "myurl";
+                  oReq.open("POST", my_url, true);
                   oReq.setRequestHeader('enctype', 'multipart/form-data');
                   oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                   oReq.onload = function (oEvent) {
@@ -51,8 +52,9 @@ function gotFileToSend(fileEntry) {
 function transFile() {
       alert("in trans file");      
       var data_to_tras = "file=bla bla! Ciccio bla!";
+      var my_url = "myurl";
       var oReq = new XMLHttpRequest();
-      oReq.open("POST", "http://www.ausl.bologna.it/applications/test/getTransFile", true);
+      oReq.open("POST", my_url, true);
       oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       oReq.onload = function (oEvent) {
          alert("all done!");
